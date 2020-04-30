@@ -3,7 +3,7 @@ import { AppLoading } from 'expo';
 import { Image, StatusBar } from 'react-native';
 import { Asset } from "expo-asset";
 import * as Font from "expo-font";
-import { Ionicons, FontAwesome } from "@expo/vector-icons";
+import { MaterialCommunityIcons, FontAwesome, Ionicons, Octicons, MaterialIcons } from "@expo/vector-icons";
 import { NavigationContainer } from "@react-navigation/native";
 import Stack from "./navigation/Stack";
 
@@ -25,7 +25,7 @@ export default function App() {
       "https://images.unsplash.com/photo-1571847140471-1d7766e825ea?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=673&q=80",
       require("./assets/splash.png")
     ])
-    const fonts = cashFonts([Ionicons.font, FontAwesome.font])
+    const fonts = cashFonts([MaterialCommunityIcons.font, FontAwesome.font, Ionicons.font, Octicons.font, MaterialIcons.font])
     return Promise.all([...images, ...fonts])
   }
   const onFinish = () => setReady(true)

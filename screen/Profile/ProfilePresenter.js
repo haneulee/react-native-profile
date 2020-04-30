@@ -6,41 +6,66 @@ import {
     Image,
     TouchableOpacity
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native'
+import { Audio } from 'expo-av';
+import { FontAwesome } from "@expo/vector-icons";
 import styled from "styled-components/native";
 import ScrollContainer from "../../components/ScrollContainer";
 
-// const Container = styled.View`
-//   margin-top: 30px;
-// `;
+export default ({ refreshFn, loading, title }) => {
+    const navigation = useNavigation();
+    const goToRecord = () => {
+        navigation.navigate('Record', {})
+    }
 
-export default ({ refreshFn, loading, title }) => (
-    <ScrollContainer refreshFn={refreshFn} loading={loading}>
+    return (<ScrollContainer refreshFn={refreshFn} loading={loading}>
         {/* <Container> */}
         <View style={styles.container}>
             <View style={styles.header}></View>
-            <Image style={styles.avatar} source={{ uri: 'https://bootdey.com/img/Content/avatar/avatar6.png' }} />
+            <Image style={styles.avatar} source={require('../../assets/profile.jpg')} />
             <View style={styles.body}>
                 <View style={styles.bodyContent}>
-                    <Text style={styles.name}>John Doe</Text>
-                    <Text style={styles.info}>UX Designer / Mobile developer</Text>
-                    <Text style={styles.description}>Lorem ipsum dolor sit amet, saepe sapientem eu nam. Qui ne assum electram expetendis, omittam deseruisse consequuntur ius an,</Text>
-
-                    <TouchableOpacity style={styles.buttonContainer}>
-                        <Text>Opcion 1</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity style={styles.buttonContainer}>
-                        <Text>Opcion 2</Text>
-                    </TouchableOpacity>
+                    <Text style={styles.name}>이하늘</Text>
+                    {/* <Text style={styles.info}>개발자</Text> */}
+                    <View style={styles.listWrap}>
+                        <View style={styles.list}><FontAwesome name={'file-audio-o'} color="#665EFF" size={22} /></View>
+                        <View style={styles.list}><TouchableOpacity onPress={goToRecord}><Text style={styles.record}>레벨 테스트</Text></TouchableOpacity></View>
+                    </View>
+                    <View style={styles.listWrap}>
+                        <View style={styles.list}><Text>직업</Text></View>
+                        <View style={styles.list}><Text>개발자</Text></View>
+                    </View>
+                    <View style={styles.listWrap}>
+                        <View style={styles.list}><Text>나이</Text></View>
+                        <View style={styles.list}><Text>31</Text></View>
+                    </View>
+                    <View style={styles.listWrap}>
+                        <View style={styles.list}><Text>관심사</Text></View>
+                        <View style={styles.list}><Text>여행, 영어</Text></View>
+                    </View>
+                    <View style={styles.listWrap}>
+                        <View style={styles.list}><Text>관심사</Text></View>
+                        <View style={styles.list}><Text>여행, 영어</Text></View>
+                    </View>
+                    <View style={styles.listWrap}>
+                        <View style={styles.list}><Text>관심사</Text></View>
+                        <View style={styles.list}><Text>여행, 영어</Text></View>
+                    </View>
+                    <View style={styles.listWrap}>
+                        <View style={styles.list}><Text>관심사</Text></View>
+                        <View style={styles.list}><Text>여행, 영어</Text></View>
+                    </View>
                 </View>
+
             </View>
         </View>
-        {/* </Contaßiner> */}
-    </ScrollContainer>
-);
+        {/* </Container> */}
+    </ScrollContainer>)
+};
 
 const styles = StyleSheet.create({
     header: {
-        backgroundColor: "#00BFFF",
+        backgroundColor: '#665EFF',
         height: 200,
     },
     avatar: {
@@ -70,11 +95,12 @@ const styles = StyleSheet.create({
     name: {
         fontSize: 28,
         color: "#696969",
-        fontWeight: "600"
+        fontWeight: "600",
+        padding: 20
     },
     info: {
         fontSize: 16,
-        color: "#00BFFF",
+        color: "#665EFF",
         marginTop: 10
     },
     description: {
@@ -94,4 +120,20 @@ const styles = StyleSheet.create({
         borderRadius: 30,
         backgroundColor: "#00BFFF",
     },
+    list: {
+        width: '50%',
+        backgroundColor: 'powderblue',
+        // textAlign: 'center',
+        padding: 20
+    },
+    listWrap: {
+        flex: 1,
+        flexDirection: 'row',
+        width: '100%',
+        marginTop: 10,
+    },
+    record: {
+        color: '#665EFF',
+        paddingTop: 3
+    }
 });

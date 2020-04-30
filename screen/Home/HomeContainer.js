@@ -8,6 +8,6 @@ export default ({ navigation, route: {
 } }) => {
     const title = "Home";
     return (
-        <HomePresenter {...title} />
+        <HomePresenter {...title} loading={false} />
     );
 };

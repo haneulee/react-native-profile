@@ -1,13 +1,13 @@
 import React from "react";
 // import { View, Text, Button } from "react-native";
-import ChatPresenter from "./ChatPresenter";
+import RecordPresenter from "./RecordPresenter";
 
 
 export default ({ navigation, route: {
     params
 } }) => {
-    const title = "Chat";
+    const title = "Record";
     return (
-        <ChatPresenter {...title} loading={false} />
+        <RecordPresenter {...title} navigation={navigation} />
     );
 };

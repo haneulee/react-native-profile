@@ -8,6 +8,6 @@ export default ({ navigation, route: {
 } }) => {
     const title = "Profile";
     return (
-        <ProfilePresenter {...title} />
+        <ProfilePresenter {...title} loading={false} />
     );
 };

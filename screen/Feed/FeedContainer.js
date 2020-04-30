@@ -8,6 +8,6 @@ export default ({ navigation, route: {
 } }) => {
     const title = "Feed";
     return (
-        <FeedPresenter {...title} />
+        <FeedPresenter {...title} loading={false} />
     );
 };
