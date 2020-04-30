@@ -1,7 +1,11 @@
 {
   "expo": {
     "name": "react-native-profile",
+    "description": "Universal React App (iOS, Android, Web) to communicate in many languages.",
     "slug": "react-native-profile",
+    "privacy": "public",
+    "sdkVersion": "36.0.0",
+    "backgroundColor": "#ffffff",
     "platforms": [
       "ios",
       "android",
@@ -22,7 +26,19 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "co.haneul.Talklab",
+      "buildNumber": "1.0.0"
+    },
+    "android": {
+      "package": "co.haneul.Talklab",
+      "versionCode": 1
+    },
+    "androidStatusBar": {
+      "backgroundColor": "#ffffff"
+    },
+    "androidNavigationBar": {
+      "backgroundColor": "#ffffff"
     }
   }
 }
